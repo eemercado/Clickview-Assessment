@@ -1,3 +1,6 @@
+# Instructions to marker
+This project relies on react-icons to look pretty so please run `npm install` before running the project.
+
 # ClickView Programming Practical
 
 Please try and complete as much of this practical as possible in the allotted time. You will be judged on your overall software design skills, use of language best practices, code reuse, and design patterns. Keep in mind that this is not an assignment and there are no strict marking criteria or rules. We are simply looking for a demonstration of your ability to design and implement software.
