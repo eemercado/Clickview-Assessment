@@ -4,8 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Playlist } from '../../interfaces/playlist'; 
 import { Video } from '../../interfaces/video'; 
-import PlaylistsLayout from '../../app/playlistsLayout';
+import SimpleLayout from '../../app/playlistsLayout';
 import VideoItem from "../../components/video-item";
+import { Button } from "react-bootstrap";
+import { ImExit } from "react-icons/im";
 
 export default function PlaylistIDPage() {
   const [playlist, setPlaylist] = useState<Playlist | null>(null);
@@ -44,14 +46,32 @@ export default function PlaylistIDPage() {
   if (!playlist) return <div>If waiting too long, Error... else, Loading...</div>;
 
   return (
-    <PlaylistsLayout>
-      <div>
+    <SimpleLayout>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <h1>Playlist: {playlist.name}</h1>
-        {videos.map(video => (
+        <Button 
+          href="../../playlists"
+          style={{
+            backgroundColor: 'orange',
+            color: 'white',
+            padding: '8px 47px',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontSize: '15px',
+            marginTop: '-10px',
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+          }}>
+          Exit <ImExit style={{ marginLeft: '10px' }}/>
+        </Button>
+      </div>
+
+      {videos.map(video => (
           <VideoItem key={video.id} video={video} />
         ))}
-      </div>
-    </PlaylistsLayout>
+    </SimpleLayout>
   );
 }
 
